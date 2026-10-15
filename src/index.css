@@ -66,9 +66,22 @@
   --shadow-card: 0 8px 24px rgb(0 0 0 / 20%);
 }
 
+:root {
+  --app-scale: 0.8;
+}
+
 #root {
-  zoom: 0.8;
+  width: 100%;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+#root > * {
+  display: block;
+  width: calc(100% / var(--app-scale));
+  min-height: calc(100vh / var(--app-scale));
+  transform: scale(var(--app-scale));
+  transform-origin: top left;
 }
 
 * {
@@ -83,6 +96,7 @@ body {
   color: var(--color-foreground);
   font-size: 15px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 input,
