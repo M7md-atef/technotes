@@ -70,13 +70,17 @@ html {
   zoom: 0.8;
 }
 
+body,
+#root {
+  min-height: calc(100vh / 0.8);
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   min-width: 320px;
-  min-height: 100vh;
   margin: 0;
   background: var(--color-background);
   color: var(--color-foreground);
