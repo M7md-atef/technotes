@@ -37,8 +37,6 @@ const Login = () => {
         try {
             const { accessToken } = await login(credentials).unwrap()
             dispatch(setCredentials({ accessToken }))
-            setUsername('')
-            setPassword('')
             navigate('/dash')
         } catch (err) {
             if (!err.status) {
