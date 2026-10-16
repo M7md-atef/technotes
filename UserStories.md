@@ -28,6 +28,8 @@ User stories describe the outcome a person needs, rather than prescribing a part
 ## Users, roles, and responsive access
 
 - [x] **As an administrator, I want users to have an employee, manager, or administrator role, so that access can be managed according to each person’s responsibilities.**
-- [x] **As a manager or administrator, I want to access user settings, so that I can manage team accounts.**
-- [x] **As a manager or administrator, I want to create user accounts, so that new team members can be given access to techNotes.**
+- [x] **As an administrator, I want to edit and delete manager and employee accounts, but not administrator accounts, so that account management follows the role hierarchy.**
+- [x] **As a manager, I want to edit and delete employee accounts only, so that managers cannot change peer or administrator accounts.**
+- [x] **As a manager or administrator, I want to create employee accounts, so that new team members can be given access to techNotes.**
+- [x] **As an administrator, I want to create manager and administrator accounts, so that elevated access can be assigned deliberately.**
 - [x] **As a team member, I want to use techNotes on desktop and mobile devices, so that I can access service information from the device available to me.**

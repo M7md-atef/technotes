@@ -2,9 +2,12 @@ import { useGetUsersQuery } from './usersApiSlice'
 import User from './User.jsx'
 import { PulseLoader } from 'react-spinners'
 import useTitle from "../../hooks/useTitle"
+import useAuth from "../../hooks/useAuth"
+import { canManageUser } from './userPermissions'
 
 const UsersList = () => {
     useTitle('techNotes: Users List')
+    const { roles } = useAuth()
 
     const { data: users,
         isLoading,
@@ -29,9 +32,10 @@ const UsersList = () => {
 
     if (isSuccess) {
 
-        const { ids } = users
+        const { ids, entities } = users
+        const manageableIds = ids.filter(userId => canManageUser(roles, entities[userId]?.roles))
 
-        content = ids.length ? (
+        content = manageableIds.length ? (
             <div className="table-wrap">
                 <table className="table table--users">
                     <thead className="table__thead">
@@ -42,7 +46,7 @@ const UsersList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {ids.map(userId => <User key={userId} userId={userId} />)}
+                        {manageableIds.map(userId => <User key={userId} userId={userId} />)}
                     </tbody>
                 </table>
             </div>
