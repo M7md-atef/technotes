@@ -33,10 +33,9 @@ const Login = () => {
     }, [username, password])
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleLogin = async (credentials) => {
         try {
-            const { accessToken } = await login({ username, password }).unwrap()
+            const { accessToken } = await login(credentials).unwrap()
             dispatch(setCredentials({ accessToken }))
             setUsername('')
             setPassword('')
@@ -53,6 +52,15 @@ const Login = () => {
             }
             errRef.current.focus();
         }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleLogin({ username, password })
+    }
+
+    const handleGuestLogin = () => {
+        handleLogin({ username: 'recruiter', password: '12345' })
     }
 
     const handleUserInput = (e) => setUsername(e.target.value)
@@ -99,6 +107,14 @@ const Login = () => {
                         required
                     />
                     <button className="form__submit-button" disabled={isLoading}>Sign In</button>
+                    <button
+                        className="form__submit-button form__submit-button--secondary"
+                        type="button"
+                        onClick={handleGuestLogin}
+                        disabled={isLoading}
+                    >
+                        HR / Recruiter Guest Login
+                    </button>
 
                     <label htmlFor="persist" className="form__persist">
                         <input

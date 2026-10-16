@@ -7,6 +7,7 @@ User stories describe the outcome a person needs, rather than prescribing a part
 - [x] **As a business owner, I want techNotes to replace the existing sticky-note process, so that service work is recorded and managed in one place.**
 - [x] **As a prospective user, I want to see a public page with basic contact information, so that I can learn how to reach the business before signing in.**
 - [x] **As an employee, I want to sign in to techNotes, so that I can securely access the notes and tools available to me.**
+- [x] **As an HR or recruiting visitor, I want a one-click guest login, so that I can preview techNotes without entering guest credentials.**
 - [x] **As a signed-in user, I want to see a welcome page, so that I can orient myself and choose where to go next.**
 - [x] **As a signed-in user, I want clear, consistent navigation, so that I can quickly reach the pages available to me.**
 - [x] **As a user, I want to switch between light and dark mode and keep my preference after reload, so that the interface remains comfortable for me to use.**
