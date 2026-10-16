@@ -18,6 +18,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const [persist, setPersist] = usePersist()
+    const [isNavigating, setIsNavigating] = useState(false)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -36,6 +37,7 @@ const Login = () => {
     const handleLogin = async (credentials) => {
         try {
             const { accessToken } = await login(credentials).unwrap()
+            setIsNavigating(true)
             dispatch(setCredentials({ accessToken }))
             navigate('/dash')
         } catch (err) {
@@ -67,7 +69,7 @@ const Login = () => {
 
     const errClass = errMsg ? "errmsg" : "offscreen"
 
-    if (isLoading) return (
+    if (isLoading || isNavigating) return (
         <div className="page-loader" role="status" aria-label="Signing in">
             <PulseLoader color="var(--color-primary)" />
         </div>
